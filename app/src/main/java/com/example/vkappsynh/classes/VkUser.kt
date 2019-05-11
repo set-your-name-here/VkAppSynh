@@ -12,11 +12,13 @@ data class VkUser(
     val status: String? = "",
     val city: String? = "",
     val photo: String? = "",
+    val bdate: String? = "",
     val deactivated: Boolean = false): Parcelable {
 
     constructor(parcel: Parcel): this(
         parcel.readInt(),
         parcel.readInt(),
+        parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
@@ -31,6 +33,7 @@ data class VkUser(
         dest.writeString(status)
         dest.writeString(city)
         dest.writeString(photo)
+        dest.writeString(bdate)
         dest.writeByte(if (deactivated) 1 else 0)
     }
 
@@ -55,6 +58,7 @@ data class VkUser(
             status = json.optString("status", ""),
             city = json.getJSONObject("city").optString("title", ""),
             photo = json.optString("photo_200", ""),
+            bdate = json.optString("bdate", ""),
             deactivated = json.optBoolean("deactivated", false))
 
     }

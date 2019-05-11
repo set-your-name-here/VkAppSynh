@@ -1,11 +1,13 @@
 package com.example.vkappsynh.fragments
 
 import android.annotation.SuppressLint
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 
@@ -24,6 +26,8 @@ class ProfileFragment : Fragment() {
     var txtGender: TextView? = null
     var txtCity: TextView? = null
 
+    var imgPhoto: ImageView? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,6 +38,7 @@ class ProfileFragment : Fragment() {
         txtBDate = view.findViewById(R.id.txtAgeValue)
         txtGender = view.findViewById(R.id.txtGenderValue)
         txtCity = view.findViewById(R.id.txtCityValue)
+        imgPhoto = view.findViewById(R.id.imgProfile)
         loadUserData()
         return view
     }
@@ -48,11 +53,14 @@ class ProfileFragment : Fragment() {
                 txtUsername!!.text = builder.toString()
                 txtStatus!!.text = user.status
                 txtCity!!.text = user.city
+                txtBDate!!.text = user.bdate
                 when (user.gender){
-                    0 -> txtGender!!.text = "Male"
+                    2 -> txtGender!!.text = "Male"
                     1 -> txtGender!!.text = "Female"
+                    0 -> txtGender!!.text = "Undefined"
                 }
-
+                //val imageUri = Uri.parse(user.photo)
+                //imgPhoto!!.setImageURI(imageUri)
             }
 
             override fun fail(error: VKApiExecutionException) {
