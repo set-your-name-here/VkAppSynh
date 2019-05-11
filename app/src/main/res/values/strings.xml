@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">VkAppSynh</string>
+    <integer name="com_vk_sdk_AppId">6972814</integer>
+    <string name="navigation_profile">Profile</string>
+    <string name="navigation_friends">Friends</string>
+    <string name="navigation_dialogs">Dialogs</string>
+    <string name="txtAgeLabel">Age: </string>
+    <string name="txtGenderLabel">Gender: </string>
+    <string name="txtCityLabel">City:</string>
+</resources>
