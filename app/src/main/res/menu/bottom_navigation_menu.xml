@@ -16,4 +16,8 @@
         android:icon="@drawable/ic_dialogs"
         android:title="@string/navigation_dialogs"/>
 
+    <item android:id="@+id/navigation_logout"
+          android:icon="@drawable/ic_logout"
+          android:title="@string/navigation_logout"/>
+
 </menu>

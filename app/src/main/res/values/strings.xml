@@ -4,7 +4,11 @@
     <string name="navigation_profile">Profile</string>
     <string name="navigation_friends">Friends</string>
     <string name="navigation_dialogs">Dialogs</string>
-    <string name="txtAgeLabel">Age: </string>
-    <string name="txtGenderLabel">Gender: </string>
+    <string name="txtAgeLabel">Age:</string>
+    <string name="txtGenderLabel">Gender:</string>
     <string name="txtCityLabel">City:</string>
+    <string name="navigation_logout">Logout</string>
+    <string name="login_title">Welcome to Synh\'s VkApp</string>
+    <string name="login_button">Authorization</string>
+    <string name="users_profile_image_desc">Users profile image</string>
 </resources>

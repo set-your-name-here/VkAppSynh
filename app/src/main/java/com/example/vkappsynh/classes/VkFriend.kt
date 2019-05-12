@@ -6,16 +6,25 @@ import org.json.JSONObject
 
 data class VkFriend(
     val id: Int = 0,
-    val name: String? = null): Parcelable{
+    val online: Int = 0,
+    val firstName: String? = null,
+    val lastName: String? = null,
+    val photo: String? = null): Parcelable{
 
     constructor(parcel: Parcel): this(
         parcel.readInt(),
+        parcel.readInt(),
+        parcel.readString(),
+        parcel.readString(),
         parcel.readString()
     )
 
     override fun writeToParcel(dest: Parcel, flags: Int) {
         dest.writeInt(id)
-        dest.writeString(name)
+        dest.writeInt(online)
+        dest.writeString(firstName)
+        dest.writeString(lastName)
+        dest.writeString(photo)
     }
 
     override fun describeContents(): Int {
@@ -33,8 +42,11 @@ data class VkFriend(
 
         fun parse(json: JSONObject)
             = VkFriend(
-                id = json.optInt("",0),
-                name = json.optString("","")
+                id = json.optInt("id",0),
+                online = json.optInt("online", 0),
+                firstName = json.optString("first_name",""),
+                lastName = json.optString("last_name", ""),
+                photo = json.optString("photo_100", "")
         )
     }
 }

@@ -14,6 +14,7 @@ import android.widget.Toast
 import com.example.vkappsynh.R
 import com.example.vkappsynh.classes.VkUser
 import com.example.vkappsynh.classes.VkUsersRequest
+import com.squareup.picasso.Picasso
 import com.vk.api.sdk.VK
 import com.vk.api.sdk.VKApiCallback
 import com.vk.api.sdk.exceptions.VKApiExecutionException
@@ -49,7 +50,7 @@ class ProfileFragment : Fragment() {
             override fun success(result: List<VkUser>) {
                 val user = result[0]
                 val builder = StringBuilder()
-                builder.append(user.lastName).append(" ").append(user.firstName)
+                builder.append(user.firstName).append(" ").append(user.lastName)
                 txtUsername!!.text = builder.toString()
                 txtStatus!!.text = user.status
                 txtCity!!.text = user.city
@@ -59,6 +60,7 @@ class ProfileFragment : Fragment() {
                     1 -> txtGender!!.text = "Female"
                     0 -> txtGender!!.text = "Undefined"
                 }
+                Picasso.get().load(user.photo).into(imgPhoto)
                 //val imageUri = Uri.parse(user.photo)
                 //imgPhoto!!.setImageURI(imageUri)
             }

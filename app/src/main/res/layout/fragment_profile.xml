@@ -19,29 +19,28 @@
                 android:layout_height="100sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:background="@color/colorAccent"/>
+                android:background="@color/colorAccent"
+                android:contentDescription="@string/users_profile_image_desc"/>
 
         <TextView
                 android:id="@+id/txtUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5sp"
+                android:layout_marginStart="10sp"
                 android:textColor="@color/colorTextColor"
                 android:textSize="35sp"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/imgProfile"
-                android:text="Фамилия Имя"/>
+                app:layout_constraintLeft_toRightOf="@id/imgProfile"/>
 
         <TextView
                 android:id="@+id/txtStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5sp"
+                android:layout_marginStart="10sp"
                 android:textColor="@color/colorTextColor"
                 android:textSize="15sp"
                 app:layout_constraintTop_toBottomOf="@id/txtUsername"
-                app:layout_constraintLeft_toRightOf="@id/imgProfile"
-                android:text="input status"/>
+                app:layout_constraintLeft_toRightOf="@id/imgProfile"/>
 
         <TextView
                 android:id="@+id/txtAgeLabel"
@@ -63,8 +62,7 @@
                 android:textColor="@color/colorTextColor"
                 android:textSize="20sp"
                 app:layout_constraintTop_toBottomOf="@id/imgProfile"
-                app:layout_constraintLeft_toRightOf="@id/txtAgeLabel"
-                android:text="01.01.1990"/>
+                app:layout_constraintLeft_toRightOf="@id/txtAgeLabel"/>
 
         <TextView
                 android:id="@+id/txtGenderLabel"
@@ -84,8 +82,7 @@
                 android:textColor="@color/colorTextColor"
                 android:textSize="20sp"
                 app:layout_constraintTop_toBottomOf="@id/txtAgeLabel"
-                app:layout_constraintLeft_toRightOf="@id/txtGenderLabel"
-                android:text="Male"/>
+                app:layout_constraintLeft_toRightOf="@id/txtGenderLabel"/>
 
         <TextView
                 android:id="@+id/txtCityLabel"
@@ -105,8 +102,7 @@
                 android:textColor="@color/colorTextColor"
                 android:textSize="20sp"
                 app:layout_constraintTop_toBottomOf="@id/txtGenderLabel"
-                app:layout_constraintLeft_toRightOf="@id/txtCityLabel"
-                android:text="Saint Petersburg"/>
+                app:layout_constraintLeft_toRightOf="@id/txtCityLabel"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
