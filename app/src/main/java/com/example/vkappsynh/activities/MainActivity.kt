@@ -30,16 +30,25 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_profile -> {
                     val profileFragment = ProfileFragment()
                     replaceFragment(profileFragment)
+                    title = "Profile"
                     return true
                 }
                 R.id.navigation_friends -> {
                     val friendsFragment = FriendsFragment()
                     replaceFragment(friendsFragment)
+                    title = "Friends"
                     return true
                 }
                 R.id.navigation_dialogs -> {
                     val dialogsFragment = DialogsFragment()
                     replaceFragment(dialogsFragment)
+                    title = "Dialogs"
+                    return true
+                }
+                R.id.navigation_logout ->{
+                    VK.logout()
+                    finish()
+                    startActivity(Intent(applicationContext, AuthActivity::class.java))
                     return true
                 }
             }
@@ -52,15 +61,26 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         navigationView = findViewById(R.id.bottom_navigation)
         navigationView!!.setOnNavigationItemSelectedListener(navigationlistner)
-        if (!VK.isLoggedIn()){
+        val profileFragment = ProfileFragment()
+        replaceFragment(profileFragment)
+        title = "Profile"
+        /*if (!VK.isLoggedIn()){
             VK.login(this, score)
+        } else{
+            val profileFragment = ProfileFragment()
+            replaceFragment(profileFragment)
+            title = "Profile"
         }
+        */
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         val callback = object: VKAuthCallback{
             override fun onLogin(token: VKAccessToken) {
                 Toast.makeText(applicationContext, "All right! It's working!\nWelcome to Synh's VK Application!", Toast.LENGTH_LONG).show()
+                val profileFragment = ProfileFragment()
+                replaceFragment(profileFragment)
+                title = "Profile"
             }
 
             override fun onLoginFailed(errorCode: Int) {
